@@ -1,0 +1,157 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  image         String?
+  password      String?
+
+  // Google OAuth tokens for GSC access
+  googleAccessToken  String?
+  googleRefreshToken String?
+  googleTokenExpiry  DateTime?
+
+  role          String    @default("user") // user, admin
+
+  // Notification preferences
+  emailAlerts       Boolean   @default(true)
+  alertThreshold    String    @default("high") // low, medium, high, critical
+
+  sites          Site[]
+  subscription   Subscription?
+  supportTickets SupportTicket[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Subscription {
+  id                     String    @id @default(cuid())
+  userId                 String    @unique
+  plan                   String    @default("free") // free, starter, pro
+  stripeCustomerId       String?
+  stripeSubscriptionId   String?
+  stripePriceId          String?
+  stripeCurrentPeriodEnd DateTime?
+
+  // Usage tracking
+  sitesUsed       Int @default(0)
+  sitesLimit      Int @default(1)
+  pagesUsed       Int @default(0)
+  pagesLimit      Int @default(50)
+  analysesUsed    Int @default(0)
+  analysesLimit   Int @default(5)
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SupportTicket {
+  id          String  @id @default(cuid())
+  userId      String
+  subject     String
+  description String
+  category    String  @default("other") // bug, feature, billing, account, other
+  priority    String  @default("medium") // low, medium, high
+  status      String  @default("open") // open, in-progress, resolved
+  response    String?
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Site {
+  id            String    @id @default(cuid())
+  userId        String
+  siteUrl       String
+  displayName   String?
+  lastSyncedAt  DateTime?
+
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  pages         Page[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([userId, siteUrl])
+}
+
+model Page {
+  id            String    @id @default(cuid())
+  siteId        String
+  url           String
+  title         String?
+
+  site          Site      @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  snapshots     Snapshot[]
+  alerts        Alert[]
+  analyses      Analysis[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([siteId, url])
+}
+
+model Snapshot {
+  id            String    @id @default(cuid())
+  pageId        String
+  date          String
+  clicks        Int       @default(0)
+  impressions   Int       @default(0)
+  ctr           Float     @default(0)
+  position      Float     @default(0)
+
+  page          Page      @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  createdAt     DateTime  @default(now())
+
+  @@unique([pageId, date])
+}
+
+model Alert {
+  id            String    @id @default(cuid())
+  pageId        String
+  type          String
+  severity      String
+  message       String
+  read          Boolean   @default(false)
+
+  page          Page      @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  createdAt     DateTime  @default(now())
+}
+
+model Analysis {
+  id            String    @id @default(cuid())
+  pageId        String
+  decayScore    Float
+  summary       String
+  recommendations String
+
+  page          Page      @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  createdAt     DateTime  @default(now())
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model CouponCode {
+  id          String    @id @default(cuid())
+  code        String    @unique
+  discount    Int       // percentage off (e.g. 20 = 20%)
+  maxUses     Int       @default(0) // 0 = unlimited
+  currentUses Int       @default(0)
+  active      Boolean   @default(true)
+  expiresAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
