@@ -20,50 +20,58 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ],
   callbacks: {
     async signIn({ user, account }) {
-      if (!user.email || !account) return false;
-
-      // Upsert user and store Google tokens
-      const dbUser = await db.user.upsert({
-        where: { email: user.email },
-        update: {
-          name: user.name,
-          image: user.image,
-          googleAccessToken: account.access_token,
-          googleRefreshToken: account.refresh_token ?? undefined,
-          googleTokenExpiry: account.expires_at
-            ? new Date(account.expires_at * 1000)
-            : undefined,
-        },
-        create: {
-          email: user.email,
-          name: user.name,
-          image: user.image,
-          googleAccessToken: account.access_token,
-          googleRefreshToken: account.refresh_token,
-          googleTokenExpiry: account.expires_at
-            ? new Date(account.expires_at * 1000)
-            : undefined,
-        },
-      });
-
-      // Create subscription if it doesn't exist
-      const existingSub = await db.subscription.findUnique({
-        where: { userId: dbUser.id },
-      });
-      if (!existingSub) {
-        const freePlan = PLANS.free;
-        await db.subscription.create({
-          data: {
-            userId: dbUser.id,
-            plan: "free",
-            sitesLimit: freePlan.limits.sites,
-            pagesLimit: freePlan.limits.pages,
-            analysesLimit: freePlan.limits.analyses,
-          },
-        });
+      if (!user.email || !account) {
+        console.error("[AUTH] signIn rejected: missing email or account");
+        return false;
       }
 
-      return true;
+      try {
+        // Upsert user and store Google tokens
+        const dbUser = await db.user.upsert({
+          where: { email: user.email },
+          update: {
+            name: user.name,
+            image: user.image,
+            googleAccessToken: account.access_token,
+            googleRefreshToken: account.refresh_token ?? undefined,
+            googleTokenExpiry: account.expires_at
+              ? new Date(account.expires_at * 1000)
+              : undefined,
+          },
+          create: {
+            email: user.email,
+            name: user.name,
+            image: user.image,
+            googleAccessToken: account.access_token,
+            googleRefreshToken: account.refresh_token,
+            googleTokenExpiry: account.expires_at
+              ? new Date(account.expires_at * 1000)
+              : undefined,
+          },
+        });
+
+        // Create subscription if it doesn't exist
+        const existingSub = await db.subscription.findUnique({
+          where: { userId: dbUser.id },
+        });
+        if (!existingSub) {
+          const freePlan = PLANS.free;
+          await db.subscription.create({
+            data: {
+              userId: dbUser.id,
+              plan: "free",
+              sitesLimit: freePlan.limits.sites,
+              pagesLimit: freePlan.limits.pages,
+              analysesLimit: freePlan.limits.analyses,
+            },
+          });
+        }
+
+        return true;
+      } catch (error) {
+        console.error("[AUTH] signIn error:", error);
+        return false;
+      }
     },
     async session({ session }) {
       if (session.user?.email) {
