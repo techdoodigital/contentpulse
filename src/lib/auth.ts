@@ -19,6 +19,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   callbacks: {
+    async redirect({ url, baseUrl }) {
+      // After sign-in, redirect to dashboard instead of homepage
+      if (url === baseUrl || url === `${baseUrl}/`) {
+        return `${baseUrl}/dashboard`;
+      }
+      // Allow callback URLs that start with the base URL
+      if (url.startsWith(baseUrl)) return url;
+      // Allow relative URLs
+      if (url.startsWith("/")) return `${baseUrl}${url}`;
+      return `${baseUrl}/dashboard`;
+    },
     async signIn({ user, account }) {
       if (!user.email || !account) {
         console.error("[AUTH] signIn rejected: missing email or account");
