@@ -126,7 +126,7 @@ export default function DashboardPage() {
             </h3>
             <p className="mt-2 text-sm text-slate-400 max-w-md mx-auto">
               Connect a Google Search Console property to start monitoring your
-              content health. ContentPulse will detect decaying pages and give
+              content health. CiteWatch will detect decaying pages and give
               you AI-powered recovery plans.
             </p>
             <button
@@ -155,7 +155,7 @@ export default function DashboardPage() {
                   step: "2",
                   title: "Sync your data",
                   description:
-                    "ContentPulse pulls page performance data from GSC. Your first sync takes a few seconds.",
+                    "CiteWatch pulls page performance data from GSC. Your first sync takes a few seconds.",
                 },
                 {
                   step: "3",

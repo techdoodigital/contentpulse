@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Privacy Policy - ContentPulse",
-  description: "ContentPulse privacy policy covering data collection, Google Search Console access, and your rights.",
+  title: "Privacy Policy - CiteWatch",
+  description: "CiteWatch privacy policy covering data collection, Google Search Console access, and your rights.",
 };
 
 export default function PrivacyPage() {
@@ -12,7 +12,7 @@ export default function PrivacyPage() {
       <section className="mb-8">
         <h2 className="text-xl font-semibold text-white">1. Overview</h2>
         <p className="text-slate-300 leading-relaxed">
-          ContentPulse ("we", "our", "us") is a content health monitoring tool
+          CiteWatch ("we", "our", "us") is a content health monitoring tool
           operated by DooDigital. This policy explains how we collect, use, and
           protect your personal information when you use our service.
         </p>

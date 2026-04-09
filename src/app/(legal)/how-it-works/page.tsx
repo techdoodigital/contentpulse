@@ -12,18 +12,18 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "How ContentPulse Works | ContentPulse",
+  title: "How CiteWatch Works | CiteWatch",
   description:
-    "ContentPulse connects to Google Search Console, detects content decay across four signals, and delivers AI-powered recovery recommendations.",
+    "CiteWatch connects to Google Search Console, detects content decay across four signals, and delivers AI-powered recovery recommendations.",
 };
 
 export default function HowItWorksPage() {
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-2">How ContentPulse Works</h1>
+      <h1 className="text-3xl font-bold mb-2">How CiteWatch Works</h1>
       <p className="text-slate-400 mb-10 max-w-2xl">
         From sign-in to actionable recovery plans in minutes. Here is exactly
-        what happens when you use ContentPulse.
+        what happens when you use CiteWatch.
       </p>
 
       {/* Steps */}
@@ -34,16 +34,16 @@ export default function HowItWorksPage() {
             icon: Search,
             title: "Sign in with Google",
             description:
-              "Click \"Start Free\" and sign in with the Google account that has access to your Search Console properties. ContentPulse requests read-only access to your search performance data.",
+              "Click \"Start Free\" and sign in with the Google account that has access to your Search Console properties. CiteWatch requests read-only access to your search performance data.",
             detail:
-              "We use the webmasters.readonly scope, meaning ContentPulse can only read your data. It cannot modify your Search Console settings, submit URLs, or make any changes to your sites.",
+              "We use the webmasters.readonly scope, meaning CiteWatch can only read your data. It cannot modify your Search Console settings, submit URLs, or make any changes to your sites.",
           },
           {
             step: "02",
             icon: RefreshCw,
             title: "Select and sync your sites",
             description:
-              "Choose which Search Console properties to monitor. ContentPulse pulls your page-level performance data including clicks, impressions, average position, and click-through rate.",
+              "Choose which Search Console properties to monitor. CiteWatch pulls your page-level performance data including clicks, impressions, average position, and click-through rate.",
             detail:
               "Data is pulled for two periods: a recent window and a historical baseline. This comparison is what powers decay detection.",
           },
@@ -61,7 +61,7 @@ export default function HowItWorksPage() {
             icon: Sparkles,
             title: "AI generates recovery plans",
             description:
-              "For each decaying page, ContentPulse uses AI to analyze the specific decline pattern and generate tailored recommendations for recovery.",
+              "For each decaying page, CiteWatch uses AI to analyze the specific decline pattern and generate tailored recommendations for recovery.",
             detail:
               "The AI considers the page URL, its keyword context, the type and magnitude of decline, and generates actionable steps specific to that page.",
           },
@@ -70,7 +70,7 @@ export default function HowItWorksPage() {
             icon: Bell,
             title: "Monitor and recover",
             description:
-              "Track your pages over time to see if updates are working. ContentPulse continues monitoring so you can catch new decay early.",
+              "Track your pages over time to see if updates are working. CiteWatch continues monitoring so you can catch new decay early.",
             detail:
               "Paid plans include automated sync schedules and email alerts so you never miss a decline. Free plans can sync manually at any time.",
           },
@@ -185,7 +185,7 @@ export default function HowItWorksPage() {
                 <ExternalLink className="h-3 w-3" />
               </a>
               . Once verified and collecting data, come back and connect it to
-              ContentPulse.
+              CiteWatch.
             </p>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "ContentPulse - Detect Content Decay & Recover Search Rankings";
+export const alt = "CiteWatch - Detect Content Decay & Recover Search Rankings";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -52,8 +52,8 @@ export default async function OGImage() {
               color: "#ffffff",
             }}
           >
-            Content
-            <span style={{ color: "#f97316" }}>Pulse</span>
+            Cite
+            <span style={{ color: "#f97316" }}>Watch</span>
           </span>
         </div>
 

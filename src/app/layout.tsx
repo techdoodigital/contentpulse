@@ -12,15 +12,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://contentpulse.app";
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://citewatch.app";
 
 export const metadata: Metadata = {
   title: {
-    default: "ContentPulse - Detect Content Decay & Recover Search Rankings",
-    template: "%s | ContentPulse",
+    default: "CiteWatch - Detect Content Decay & Recover Search Rankings",
+    template: "%s | CiteWatch",
   },
   description:
-    "ContentPulse connects to Google Search Console to detect pages losing traffic and rankings. Get AI-powered recommendations to recover decaying content before competitors take over.",
+    "CiteWatch connects to Google Search Console to detect pages losing traffic and rankings. Get AI-powered recommendations to recover decaying content before competitors take over.",
   keywords: [
     "content decay",
     "content decay detection",
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "ContentPulse",
-    title: "ContentPulse - Detect Content Decay & Recover Search Rankings",
+    siteName: "CiteWatch",
+    title: "CiteWatch - Detect Content Decay & Recover Search Rankings",
     description:
       "Connect Google Search Console, detect pages losing traffic, and get AI recovery plans. Free plan available.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ContentPulse - Detect Content Decay & Recover Search Rankings",
+    title: "CiteWatch - Detect Content Decay & Recover Search Rankings",
     description:
       "Connect Google Search Console, detect pages losing traffic, and get AI recovery plans.",
   },
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "ContentPulse",
+  name: "CiteWatch",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description:
@@ -141,18 +141,18 @@ const faqJsonLd = {
     },
     {
       "@type": "Question",
-      name: "How does ContentPulse detect decaying content?",
+      name: "How does CiteWatch detect decaying content?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "ContentPulse connects to your Google Search Console data and compares recent performance against historical baselines. It analyzes four signals: clicks, impressions, average position, and click-through rate. Pages showing significant decline are flagged and scored by severity.",
+        text: "CiteWatch connects to your Google Search Console data and compares recent performance against historical baselines. It analyzes four signals: clicks, impressions, average position, and click-through rate. Pages showing significant decline are flagged and scored by severity.",
       },
     },
     {
       "@type": "Question",
-      name: "Do I need Google Search Console to use ContentPulse?",
+      name: "Do I need Google Search Console to use CiteWatch?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. ContentPulse pulls performance data directly from Google Search Console. You need to sign in with the Google account that has access to your verified Search Console properties.",
+        text: "Yes. CiteWatch pulls performance data directly from Google Search Console. You need to sign in with the Google account that has access to your verified Search Console properties.",
       },
     },
     {
@@ -160,7 +160,7 @@ const faqJsonLd = {
       name: "Is my data private and secure?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Each user's data is completely isolated. Your Search Console data, decay reports, and AI analyses are only accessible to you. ContentPulse never shares, aggregates, or uses your data for any purpose other than providing your reports.",
+        text: "Yes. Each user's data is completely isolated. Your Search Console data, decay reports, and AI analyses are only accessible to you. CiteWatch never shares, aggregates, or uses your data for any purpose other than providing your reports.",
       },
     },
   ],

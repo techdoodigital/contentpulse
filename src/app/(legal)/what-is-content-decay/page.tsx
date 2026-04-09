@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "What Is Content Decay? | ContentPulse",
+  title: "What Is Content Decay? | CiteWatch",
   description:
     "Content decay is the gradual decline in a page's search performance. Learn the causes, warning signs, and how to detect and recover decaying content.",
 };
@@ -212,10 +212,10 @@ export default function WhatIsContentDecayPage() {
         </div>
       </section>
 
-      {/* How ContentPulse helps */}
+      {/* How CiteWatch helps */}
       <section className="mb-10">
         <h2 className="text-xl font-bold text-white mb-4">
-          How ContentPulse Automates This
+          How CiteWatch Automates This
         </h2>
         <div className="rounded-xl border border-orange-500/20 bg-gradient-to-b from-orange-500/5 to-transparent p-6">
           <ul className="space-y-3">

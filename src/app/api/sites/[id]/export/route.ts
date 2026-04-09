@@ -171,7 +171,7 @@ export async function GET(
     const siteName =
       site.displayName || site.siteUrl.replace(/https?:\/\//, "").replace(/\/$/, "");
     const date = new Date().toISOString().split("T")[0];
-    const filename = `contentpulse-${siteName}-${date}.csv`;
+    const filename = `citewatch-${siteName}-${date}.csv`;
 
     return new Response(csv, {
       headers: {

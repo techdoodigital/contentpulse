@@ -87,12 +87,12 @@ const faqs = [
     a: "Content decay is the gradual decline in a page's search performance over time. Pages that once ranked well start losing positions, clicks, and impressions due to outdated information, increased competition, or shifting search intent. Without monitoring, these declines often go unnoticed until traffic has dropped significantly.",
   },
   {
-    q: "How does ContentPulse detect decaying content?",
-    a: "ContentPulse connects to your Google Search Console data and compares recent performance against historical baselines. It analyzes four signals: clicks, impressions, average position, and click-through rate. Pages showing significant decline across these signals are flagged and scored by severity.",
+    q: "How does CiteWatch detect decaying content?",
+    a: "CiteWatch connects to your Google Search Console data and compares recent performance against historical baselines. It analyzes four signals: clicks, impressions, average position, and click-through rate. Pages showing significant decline across these signals are flagged and scored by severity.",
   },
   {
     q: "Do I need Google Search Console to use this?",
-    a: "Yes. ContentPulse pulls performance data directly from Google Search Console. You need to sign in with the Google account that has access to your verified Search Console properties. If your site is not yet verified in GSC, you will need to set that up first.",
+    a: "Yes. CiteWatch pulls performance data directly from Google Search Console. You need to sign in with the Google account that has access to your verified Search Console properties. If your site is not yet verified in GSC, you will need to set that up first.",
   },
   {
     q: "Which Google account should I use to sign in?",
@@ -100,7 +100,7 @@ const faqs = [
   },
   {
     q: "How is this different from checking Google Search Console manually?",
-    a: "GSC shows raw data but requires manual comparison of date ranges and page-by-page analysis. ContentPulse automates detection, scores severity so you know where to focus, and provides AI-generated recommendations for how to recover each decaying page.",
+    a: "GSC shows raw data but requires manual comparison of date ranges and page-by-page analysis. CiteWatch automates detection, scores severity so you know where to focus, and provides AI-generated recommendations for how to recover each decaying page.",
   },
   {
     q: "Can I cancel anytime?",
@@ -130,7 +130,7 @@ export default function LandingPage() {
           <div className="flex items-center gap-2">
             <Activity className="h-6 w-6 text-orange-500" />
             <span className="text-xl font-bold">
-              Content<span className="text-orange-500">Pulse</span>
+              Cite<span className="text-orange-500">Watch</span>
             </span>
           </div>
           <nav className="hidden md:flex items-center gap-6">
@@ -182,7 +182,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400 leading-relaxed">
-            ContentPulse connects to Google Search Console, detects pages losing
+            CiteWatch connects to Google Search Console, detects pages losing
             traffic and rankings, and gives you AI-powered recommendations to
             recover before your competitors take over.
           </p>
@@ -217,7 +217,7 @@ export default function LandingPage() {
                   <div className="h-3 w-3 rounded-full bg-green-500/60" />
                 </div>
                 <div className="flex-1 rounded-md bg-slate-800 px-3 py-1 text-xs text-slate-500">
-                  contentpulse.app/dashboard
+                  citewatch.app/dashboard
                 </div>
               </div>
               <div className="grid grid-cols-4 gap-3 mb-4">
@@ -297,7 +297,7 @@ export default function LandingPage() {
             Stop losing traffic you worked hard to earn
           </h2>
           <p className="mt-3 text-center text-slate-400 max-w-2xl mx-auto">
-            ContentPulse watches your pages 24/7 so you can focus on creating,
+            CiteWatch watches your pages 24/7 so you can focus on creating,
             not constantly checking dashboards.
           </p>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -372,7 +372,7 @@ export default function LandingPage() {
                 icon: Search,
                 title: "Connect Google Search Console",
                 description:
-                  "One-click Google sign-in. ContentPulse pulls your page performance data automatically using read-only access.",
+                  "One-click Google sign-in. CiteWatch pulls your page performance data automatically using read-only access.",
               },
               {
                 step: "02",
@@ -542,7 +542,7 @@ export default function LandingPage() {
               <div className="flex items-center gap-2 mb-4">
                 <Activity className="h-5 w-5 text-orange-500" />
                 <span className="text-sm font-semibold">
-                  Content<span className="text-orange-500">Pulse</span>
+                  Cite<span className="text-orange-500">Watch</span>
                 </span>
               </div>
               <p className="text-xs text-slate-500 leading-relaxed">

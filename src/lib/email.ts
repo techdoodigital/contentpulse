@@ -1,5 +1,5 @@
 /**
- * Email notification service for ContentPulse.
+ * Email notification service for CiteWatch.
  *
  * Currently uses a simple logging approach for development.
  * In production, swap the `sendEmail` implementation for your
@@ -22,7 +22,7 @@ export async function sendEmail(payload: EmailPayload): Promise<boolean> {
 
   // Check if email sending is configured
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.EMAIL_FROM || "ContentPulse <alerts@contentpulse.app>";
+  const from = process.env.EMAIL_FROM || "CiteWatch <alerts@citewatch.app>";
 
   if (!apiKey) {
     console.log("[Email] No RESEND_API_KEY set. Email would be sent to:", to);
@@ -107,7 +107,7 @@ export async function sendDecayAlertEmail(
       <div style="max-width: 600px; margin: 0 auto; padding: 24px;">
         <!-- Header -->
         <div style="text-align: center; margin-bottom: 24px;">
-          <span style="font-size: 20px; font-weight: 700; color: #fff;">Content<span style="color: #f97316;">Pulse</span></span>
+          <span style="font-size: 20px; font-weight: 700; color: #fff;">Cite<span style="color: #f97316;">Watch</span></span>
         </div>
 
         <!-- Main card -->
@@ -152,7 +152,7 @@ export async function sendDecayAlertEmail(
             <a href="${appUrl}/account" style="color: #f97316; text-decoration: none;">Manage preferences</a>
           </p>
           <p style="color: #334155; font-size: 11px; margin: 8px 0 0;">
-            ContentPulse by DooDigital
+            CiteWatch by DooDigital
           </p>
         </div>
       </div>

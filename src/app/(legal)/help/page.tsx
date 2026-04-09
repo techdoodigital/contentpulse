@@ -13,9 +13,9 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Help & Setup Guide | ContentPulse",
+  title: "Help & Setup Guide | CiteWatch",
   description:
-    "Learn how to connect Google Search Console, set up your account, and get the most out of ContentPulse content decay monitoring.",
+    "Learn how to connect Google Search Console, set up your account, and get the most out of CiteWatch content decay monitoring.",
 };
 
 export default function HelpPage() {
@@ -23,7 +23,7 @@ export default function HelpPage() {
     <div>
       <h1 className="text-3xl font-bold mb-2">Help & Setup Guide</h1>
       <p className="text-slate-400 mb-10">
-        Everything you need to get started with ContentPulse and connect your
+        Everything you need to get started with CiteWatch and connect your
         Google Search Console data.
       </p>
 
@@ -58,7 +58,7 @@ export default function HelpPage() {
         </div>
         <div className="rounded-xl border border-slate-800 bg-slate-900/30 p-6 space-y-4">
           <p className="text-sm text-slate-400 leading-relaxed">
-            ContentPulse uses your Google Search Console data to detect content
+            CiteWatch uses your Google Search Console data to detect content
             decay. Here is how to connect your account:
           </p>
           <ol className="space-y-3">
@@ -79,7 +79,7 @@ export default function HelpPage() {
           </ol>
           <div className="rounded-lg border border-slate-700 bg-slate-800/50 p-4">
             <p className="text-xs text-slate-400">
-              <strong className="text-slate-300">Note:</strong> ContentPulse
+              <strong className="text-slate-300">Note:</strong> CiteWatch
               requests <code className="text-orange-400">webmasters.readonly</code>{" "}
               access only. It cannot modify your Search Console settings, submit
               URLs, or change any site configuration.
@@ -200,7 +200,7 @@ export default function HelpPage() {
         </div>
         <div className="rounded-xl border border-slate-800 bg-slate-900/30 p-6 space-y-4">
           <p className="text-sm text-slate-400 leading-relaxed">
-            ContentPulse compares your recent page performance against
+            CiteWatch compares your recent page performance against
             historical baselines to detect declining content. Here is what it
             measures:
           </p>
@@ -320,7 +320,7 @@ export default function HelpPage() {
         <div className="rounded-xl border border-slate-800 bg-slate-900/30 p-6 space-y-3">
           <ul className="space-y-2">
             {[
-              "ContentPulse only requests read-only access to your Search Console data.",
+              "CiteWatch only requests read-only access to your Search Console data.",
               "Your data is completely isolated and only accessible to you.",
               "We never share, aggregate, or sell your data to third parties.",
               "You can revoke access at any time from your Google Account permissions page.",
